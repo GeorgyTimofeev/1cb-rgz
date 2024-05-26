@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass&display=swap");
+
+body {
+    font-family: "Overpass", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.menu-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #3c4171;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height 0.3s ease;
+    margin-top: 20px;
+}
+
+.menu-panel:hover {
+    height: 80px;
+}
+
+.menu-panel ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.menu-panel ul li {
+    margin: 0 10px;
+}
+
+.menu-panel ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu-panel ul li a:hover {
+    color: #f8f9fa;
+}
+
+:root {
+    --primary-color: #3c4171; /* Основной цвет */
+    --primary-color-light: #648cc2; /* Светлый оттенок основного цвета */
+    --secondary-color: #6c757d; /* Второстепенный цвет */
+    --secondary-color-dark: #343a40; /* Темный оттенок второстепенного цвета */
+    --light-color: #f8f9fa; /* Светлый цвет */
+    --dark-color: #343a40; /* Темный цвет */
+    --gray-color: #e9ecef; /* Серый цвет */
+}
+
+h1 {
+    color: var(--primary-color);
+    margin: 10px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    color: var(--primary-color);
+    text-align: left;
+    margin: 20px;
+}
+
+h3 {
+    font-family: "Overpass", sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin: 20px;
+}
+
+h4 {
+    font-family: "Overpass", sans-serif;
+    color: #333;
+    margin: 20px;
+}
+
+p {
+    color: var(--dark-color);
+    margin: 20px;
+}
+
+a {
+    color: var(--secondary-color);
+}
+
+/* Дополнительные стили для ссылок и других элементов */
+a:hover {
+    color: var(--secondary-color-dark);
+}

@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Первый Клиентский Банк</title>
+        <link rel="stylesheet" href="main.css" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="favicon-16x16.png"
+        />
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            body,
+            html {
+                height: 100%;
+                margin-bottom: 20px;
+            }
+
+            .logo {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                width: 75px;
+                height: auto;
+                margin: 20px 0 0;
+            }
+            .text-block {
+                position: absolute;
+                height: 250px;
+                width: 45%;
+                top: 530px;
+                background-color: #f8f9fa;
+                padding: 20px;
+                box-sizing: border-box;
+                overflow-y: auto;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                margin-left: 20px;
+                transition: height 0.3s ease;
+            }
+
+            .text-block.expanded {
+                height: 550px; /* Задаем высоту блоку при развертывании */
+                margin-bottom: 50px;
+                z-index: 0;
+            }
+
+            .text-block button {
+                display: block;
+                margin: 20px;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: #648cc2;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-family: "Overpass", sans-serif;
+                float: left; /* Выравнивание кнопки по левому краю */
+            }
+            .text-block button:hover {
+                background-color: #3c4171;
+            }
+
+            .right-block {
+                position: absolute;
+                right: 30px;
+                height: 600px;
+                width: 45%;
+                background-color: #f8f9fa;
+                padding: 20px;
+                box-sizing: border-box;
+                overflow-y: auto;
+                border-radius: 8px;
+            }
+            #schedule {
+                position: absolute;
+                top: 810px; /* Изначальное значение top */
+                position: absolute;
+                height: 250px;
+                width: 45%;
+                background-color: #f8f9fa;
+                padding: 20px;
+                box-sizing: border-box;
+                overflow-y: auto;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                margin-left: 20px;
+                transition: height 0.3s ease;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1
+                style="
+                    margin: 20px;
+                    font-family: Overpass;
+                    text-align: left;
+                    font-size: 50px;
+                "
+            >
+                <div>
+                    О
+                    <u
+                        ><div style="display: inline; color: #c0c0c0">
+                            компании
+                        </div></u
+                    >
+                </div>
+            </h1>
+        </header>
+
+        <main>
+            <img src="logo.png" alt="Логотип" class="logo" />
+            <img
+                src="office.jpg"
+                alt="Фотография офиса"
+                class="left-image"
+                style="
+                    position: absolute;
+                    top: 85px;
+                    left: 0;
+                    width: 45%;
+                    height: 400px;
+                    object-fit: cover;
+                    z-index: -5;
+                    margin: 20px;
+                    border-radius: 8px;
+                "
+            />
+            <div class="text-block">
+                <h2>С нами Ваш бизнес станет еще успешнее!</h2>
+                <h3 style="margin-bottom: 0px">
+                    Первый Клиентский Банк осуществляет финансирование компаний
+                    и предпринимателей с годовым оборотом от 5 млн. рублей до 3
+                    лет и от 16% годовых в рублях.
+                </h3>
+                <button id="toggleButton">Узнать подробности</button>
+                <div id="detailedText" style="display: none">
+                    <br /><br /><br />
+                    <h3>КРЕДИТЫ ДЛЯ МАЛОГО И СРЕДНЕГО БИЗНЕСА</h3>
+                    <p>
+                        Первый Клиентский Банк осуществляет финансирование
+                        компаний и предпринимателей с годовым оборотом от 50
+                        млн. рублей до 10 лет и от 18% годовых в рублях (как
+                        правило, применяется плавающая ставка кредита в привязке
+                        к ключевой ставке ЦБ РФ).
+                    </p>
+                    <p>
+                        Получить кредит для организации или предпринимателя
+                        достаточно просто. Необходимо выбрать программу
+                        корпоративного кредитования, ознакомиться с требованиями
+                        к заемщику, подготовить минимальный пакет документов на
+                        получение кредита.
+                    </p>
+                    <h4>Целевой кредит.</h4>
+
+                    <p>
+                        Разовый кредит на пополнение оборотных средств, покупку
+                        оборудования или недвижимости.
+                    </p>
+                    <ul>
+                        <li>Срок – до 120 месяцев</li>
+                        <li>Сумма - от 10 000 000 руб</li>
+                        <li>Ставка – от 18 % годовых в рублях</li>
+                        <li>
+                            Условия погашения процентов и основного долга –
+                            ежемесячный аннуитетный платеж
+                        </li>
+                        <li>
+                            Обеспечение: обязательный залог недвижимого
+                            имущества; дополнительное обеспечение: движимое
+                            имущество, ценные бумаги, депозит, государственные
+                            контракты, поручительство (в том числе возможно
+                            предоставление обеспечения от третьих лиц)
+                        </li>
+                    </ul>
+                    <h4>Кредитная линия</h4>
+                    <p>
+                        Финансирование оборотного капитала. Кредитная линия с
+                        лимитом выдачи или задолженности
+                    </p>
+                    <ul>
+                        <li>Срок – до 24 месяцев</li>
+                        <li>Сумма - от 10 000 000 руб</li>
+                        <li>Ставка – от 18 % годовых в рублях</li>
+                        <li>Комиссия за предоставление кредита – от 0,5%</li>
+                        <li>
+                            Обеспечение: обязательный залог недвижимого
+                            имущества
+                        </li>
+                        <li>
+                            Дополнительное обеспечение: движимое имущество,
+                            ценные бумаги, депозит, государственные контракты,
+                            поручительство (в том числе возможно предоставление
+                            обеспечения от третьих лиц)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-block" id="schedule" style="height: 280px">
+                <h2>График работы Банка в мае 2024г</h2>
+                <ul style="margin-bottom: 80px">
+                    <li>26.04: 9:00 - 19:00;<br /></li>
+                    <li>операционный день 9:00 - 17:00 <br /></li>
+                    <li>
+                        27.04: 9:00 - 18:00; операционный день 9:00 - 16:00
+                        <br />
+                    </li>
+                    <li>28, 29, 30, 1 мая - выходные дни <br /></li>
+                    <li>8.05: 9:00 - 18:00; <br /></li>
+                    <li>операционный день 9:00 - 16:00 <br /></li>
+                    <li>9,10,11,12 - выходные дни</li>
+                </ul>
+            </div>
+
+            <div
+                class="text-block"
+                style="
+                    bottom: 0;
+                    background-color: transparent;
+                    top: 1400px;
+                    height: 50px;
+                "
+            ></div>
+
+            <div class="right-block">
+                <h2>История Банка</h2>
+                <p>Первый Клиентский Банк был основан в 2003 г.</p>
+                <p>
+                    С тех пор Банк зарекомендовал себя как надежный партнер с
+                    безупречной деловой репутацией. <br />Мы являемся
+                    современным банком, предлагающим полный спектр услуг для
+                    корпоративных и частных клиентов. <br />В своей работе мы
+                    придерживаемся принципов:
+                </p>
+                <ul>
+                    <li>Добросовестность</li>
+                    <li>Честность</li>
+                    <li>Профессионализм</li>
+                    <li>Взаимное доверие и уважение</li>
+                    <li>
+                        Приоритетность интересов клиента и нерушимость
+                        обязательств
+                    </li>
+                </ul>
+                <p>
+                    Благодаря правильному вектору развития и целеустремленности,
+                    за прошедшие годы нашей деятельности:
+                </p>
+                <ul>
+                    <li>
+                        Собственные средства банка увеличились
+                        <u>более чем в 25 раз</u>
+                    </li>
+                    <li>Активы банка выросли <u>более чем в 50 раз</u></li>
+                    <li>Уставной капитал увеличился в <u>13 раз</u></li>
+                    <li>Нам уже доверяют <u>более 1500 клиентов</u></li>
+                </ul>
+                <p>
+                    Одним из приоритетных направлений деятельности банка,
+                    является помощь малому и среднему бизнесу. Банк осуществляет
+                    финансирование компаний и индивидуальных предпринимателей.
+                    Программа кредитования позволяет осуществлять гибкий,
+                    индивидуальный подход к каждому клиенту.
+                </p>
+                <p>
+                    Первый Клиентский Банк выпускает собственные простые
+                    дисконтные и процентные векселя. С точки зрения
+                    оперативности заключения и исполнения сделок простой вексель
+                    может являться удобным платежным средством и использоваться
+                    в расчетах за проданные товары или оказанные услуги.
+                </p>
+                <p>
+                    Первый Клиентский Банк – это надежный партнер, который
+                    всегда экономит время клиентов, предоставляя эффективные
+                    финансовые решения для Вашего бизнеса.
+                </p>
+                <p style="color: #648cc2">
+                    Мы будем рады видеть Вас в числе наших клиентов!
+                </p>
+            </div>
+
+            <div
+                class="right-block"
+                style="top: 730px; display: block; height: 650px"
+            >
+                <h2>Лицензии и свидетельства</h2>
+                <h3>В настоящее время Банк обладает следующими лицензиями:</h3>
+                <ul style="margin-bottom: 60px">
+                    <li>
+                        <a
+                            href="https://1cb.ru/upload/medialibrary/06b/bank_litsenziya.pdf"
+                            >Лицензия на осуществление банковских операций</a
+                        >
+                        со средствами в рублях и иностранной валюте № 3436
+                        выдана Центральным банком Российской Федерации 23 апреля
+                        2012 года (взамен лицензии № 3436 от 20.08.2003 г.)
+                    </li>
+                    <br />
+                    <li>
+                        <a
+                            href="https://1cb.ru/upload/medialibrary/61c/brokerskaya_litsenziya.pdf"
+                            >Лицензия профессионального участника рынка ценных
+                            бумаг на осуществление брокерской деятельности</a
+                        >
+                        №077-12456-100000 от 25.08.2009 г., выдана Федеральной
+                        службой по финансовым рынкам. Срок действия лицензии -
+                        без ограничения срока.
+                    </li>
+                    <br />
+                    <li>
+                        <a
+                            href="https://1cb.ru/upload/medialibrary/751/dilerskaya_litsenziya.pdf"
+                            >Лицензия профессионального участника рынка ценных
+                            бумаг на осуществление дилерской деятельности</a
+                        >
+                        №077-12459-010000 от 25.08.2009 г., выдана Федеральной
+                        службой по финансовым рынкам. Срок действия лицензии -
+                        без ограничения срока действия.
+                    </li>
+                    <br />
+                    <li>
+                        <a
+                            href="https://1cb.ru/upload/medialibrary/0c0/depozitar_litsenziya.pdf"
+                            >Лицензия профессионального участника рынка ценных
+                            бумаг на осуществление депозитарной деятельности</a
+                        >
+                        №077-13938-000100 от 06.07.2015 г., выдана Банком
+                        России. Срок действия лицензии - без ограничения срока
+                        действия.
+                    </li>
+                    <br />
+                    <li>
+                        <a
+                            href="https://1cb.ru/upload/medialibrary/119/kriptograf_litsenziya.pdf"
+                            >Лицензия на осуществление разработки, производства,
+                            распространения шифровальных (криптографических)
+                            средств</a
+                        >, информационных систем и телекоммуникационных систем,
+                        защищенных с использованием шифровальных
+                        (криптографических) средств, выполнения работ, оказания
+                        услуг в области шифрования информации, технического
+                        обслуживания шифровальных (криптографических) средств,
+                        информационных систем и телекоммуникационных систем,
+                        защищенных с использованием шифровальных
+                        (криптографических) средств (за исключением случая, если
+                        техническое обслуживание шифровальных
+                        (криптографических) средств, информационных систем и
+                        телекоммуникационных систем, защищенных с использованием
+                        шифровальных (криптографических) средств, осуществляется
+                        для обеспечения собственных нужд юридического лица или
+                        индивидуального предпринимателя) от 02.06.2015 г.  Рег №
+                        14338 Н , выдана Центром по лицензированию, сертификации
+                        и защите государственной тайны ФСБ России, срок действия
+                        – бессрочно.
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <div class="menu-panel">
+                <ul>
+                    <li><a href="main-page.html">Главная</a></li>
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Курс валют</a></li>
+                    <li><a href="#">Контактные данные</a></li>
+                    <li><a href="#">Видео</a></li>
+                </ul>
+            </div>
+        </footer>
+
+        <script>
+            document
+                .getElementById("toggleButton")
+                .addEventListener("click", function () {
+                    var detailedText = document.getElementById("detailedText");
+                    var textBlock = document.querySelector(".text-block");
+                    var schedule = document.getElementById("schedule");
+
+                    if (textBlock.classList.contains("expanded")) {
+                        textBlock.classList.remove("expanded");
+                        detailedText.style.display = "none";
+                        schedule.style.top = ""; // Возвращаем значение top к исходному состоянию
+                        this.textContent = "Узнать подробности";
+                    } else {
+                        textBlock.classList.add("expanded");
+                        detailedText.style.display = "block";
+                        schedule.style.top = "1100px"; // Устанавливаем значение top для блока расписания
+                        this.textContent = "Скрыть";
+                    }
+                });
+        </script>
+    </body>
+</html>
