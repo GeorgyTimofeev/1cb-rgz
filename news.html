@@ -40,25 +40,15 @@
                 height: 100%;
                 margin: 0;
             }
-            .video-container {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
+            .video-background {
+                position: fixed;
+                right: 45%;
+                bottom: 45%;
+                max-width: 75%;
+                max-height: 75%;
                 z-index: -100;
-                filter: blur(5px);
-            }
-            .video-container video {
-                min-width: 100%;
-                min-height: 100%;
-                width: auto;
-                height: auto;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                filter: blur(20px);
+                object-fit: cover;
             }
 
             .logo {
@@ -81,22 +71,12 @@
                     font-size: 50px;
                 "
             >
-                Первый Клиентский <br />
-                <u><div style="color: #c0c0c0; font-size: 80px">Банк</div></u>
+                Новости <br />
+                <u><div style="color: #c0c0c0; font-size: 80px">Банка</div></u>
             </h1>
         </header>
 
         <main>
-            <div class="video-container">
-                <video autoplay loop muted>
-                    <source
-                        src="background-video-low-res.mp4"
-                        type="video/mp4"
-                    />
-                    Ваш браузер не поддерживает HTML5 видео.
-                </video>
-            </div>
-
             <img src="logo.png" alt="Логотип" class="logo" />
         </main>
 
