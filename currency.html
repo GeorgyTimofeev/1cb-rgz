@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Первый Клиентский Банк</title>
+        <link rel="stylesheet" href="main.css" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="favicon-16x16.png"
+        />
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            .logo {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                width: 75px;
+                height: auto;
+                margin: 20px 0 0;
+            }
+
+            .container {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 50px;
+                font-family: "Overpass";
+            }
+            .currency-rates {
+                width: 40%;
+                border: 8px solid #f8f9fa;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                overflow: hidden;
+                margin-left: 20px;
+                background-color: #f8f9fa;
+            }
+
+            .currency-rates table {
+                width: 90%;
+            }
+            .currency-rates th,
+            .currency-rates td {
+                padding: 10px 10px 10px 0px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            .currency-rates th {
+                background-color: #f8f9fa;
+                color: #648cc2;
+            }
+
+            .currency-calculator {
+                width: 50%;
+                border: 8px solid #f8f9fa;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                overflow: hidden;
+                margin-right: 20px;
+                background-color: #f8f9fa;
+                padding: 20px;
+            }
+
+            .currency-calculator input {
+                font-family: "Overpass";
+                display: block;
+                width: 185px;
+                margin-bottom: 10px;
+                margin-right: 20px;
+                padding: 10px;
+                font-size: 16px;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+            }
+
+            .currency-calculator select,
+            .currency-calculator button {
+                font-family: "Overpass";
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+                margin-right: 20px;
+                padding: 10px;
+                font-size: 16px;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+            }
+
+            .currency-calculator button {
+                background-color: #648cc2;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+            .currency-calculator button:hover {
+                background-color: #536fa1;
+            }
+
+            .currency-calculator .result {
+                font-family: "Overpass";
+                font-size: 16px;
+                margin-top: 10px;
+                color: #333;
+            }
+
+            .currency-calculator .result {
+                font-family: "Overpass";
+                display: block;
+                padding: 10px;
+                font-size: 24px;
+                border: none;
+                position: absolute;
+                top: 200px;
+                right: 42px;
+                width: auto;
+                color: #648cc2;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1
+                style="
+                    margin: 20px;
+                    font-family: Overpass;
+                    text-align: left;
+                    font-size: 50px;
+                "
+            >
+                <div>
+                    Курс
+                    <u
+                        ><div style="display: inline; color: #c0c0c0">
+                            валют
+                        </div></u
+                    >
+                </div>
+            </h1>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="currency-rates">
+                    <h2>Актуальные курсы основных валют</h2>
+                    <table
+                        id="currencyTable"
+                        style="margin: 20px; border-radius: 8px"
+                    >
+                        <thead>
+                            <tr>
+                                <th>Валюта</th>
+                                <th>Курс</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="currency-calculator">
+                    <h2 style="margin-left: 0px; margin-top: 0px">
+                        Конвертер валют
+                    </h2>
+                    <input
+                        type="number"
+                        id="amountInput"
+                        placeholder="Введите сумму"
+                        style="margin-right: 20px"
+                    />
+
+                    <div class="result" id="conversionResult"></div>
+
+                    <h3 style="margin-left: 0">Валюта ввода</h3>
+
+                    <select id="fromCurrencySelect">
+                        <option value="RUB">Рубль (RUB)</option>
+                        <option value="USD">Доллар США (USD)</option>
+                        <option value="EUR">Евро (EUR)</option>
+                        <option value="CNY">Юань (CNY)</option>
+                        <option value="GBP">Фунт стерлингов (GBP)</option>
+                        <option value="KZT">Казахстанский тенге (KZT)</option>
+                    </select>
+
+                    <h3 style="margin-left: 0">Валюта вывода</h3>
+
+                    <select id="toCurrencySelect">
+                        <option value="RUB">Рубль (RUB)</option>
+                        <option value="USD">Доллар США (USD)</option>
+                        <option value="EUR">Евро (EUR)</option>
+                        <option value="CNY">Юань (CNY)</option>
+                        <option value="GBP">Фунт стерлингов (GBP)</option>
+                        <option value="KZT">Казахстанский тенге (KZT)</option>
+                    </select>
+                    <button onclick="convertCurrency()">Конвертировать</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="menu-panel">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="currency.html">Курс валют</a></li>
+                    <li><a href="contacts.html">Контактные данные</a></li>
+                    <li><a href="video.html">Видео</a></li>
+                </ul>
+            </div>
+        </footer>
+
+        <script>
+            let rates = {};
+
+            function getCurrencyRates() {
+                fetch("https://www.cbr-xml-daily.ru/daily_json.js")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        rates = data.Valute;
+                        rates.RUB = { Value: 1, CharCode: "RUB" }; // Add RUB to rates
+                        rates.KZT = {
+                            Value: data.Valute.KZT.Value / 100,
+                            CharCode: "KZT",
+                        }; // Convert KZT to correct value
+                        const currenciesToDisplay = [
+                            "USD",
+                            "EUR",
+                            "CNY",
+                            "GBP",
+                            "KZT",
+                        ];
+                        const tableBody = document.querySelector(
+                            "#currencyTable tbody",
+                        );
+                        tableBody.innerHTML = "";
+
+                        for (const currencyCode of currenciesToDisplay) {
+                            const currency = rates[currencyCode];
+                            const row = document.createElement("tr");
+                            row.innerHTML = `
+                            <td>${currency.CharCode}</td>
+                            <td>${currency.Value.toFixed(2)}</td>
+                        `;
+                            tableBody.appendChild(row);
+                        }
+                    })
+                    .catch((error) =>
+                        console.error("Ошибка при получении курсов:", error),
+                    );
+            }
+
+            function convertCurrency() {
+                const amountInput = document.getElementById("amountInput");
+                const fromCurrencySelect =
+                    document.getElementById("fromCurrencySelect");
+                const toCurrencySelect =
+                    document.getElementById("toCurrencySelect");
+                const resultElement =
+                    document.getElementById("conversionResult");
+
+                const amount = parseFloat(amountInput.value);
+                const fromCurrency = fromCurrencySelect.value;
+                const toCurrency = toCurrencySelect.value;
+
+                if (isNaN(amount) || amount <= 0) {
+                    resultElement.textContent = "Введите корректную сумму.";
+                    return;
+                }
+
+                if (!rates[fromCurrency] || !rates[toCurrency]) {
+                    resultElement.textContent =
+                        "Не удалось получить курсы для выбранных валют.";
+                    return;
+                }
+
+                const fromRate = rates[fromCurrency].Value;
+                const toRate = rates[toCurrency].Value;
+
+                const convertedAmount = ((amount * fromRate) / toRate).toFixed(
+                    2,
+                );
+                resultElement.textContent = `${amount.toFixed(
+                    2,
+                )} ${fromCurrency} = ${convertedAmount} ${toCurrency}`;
+            }
+
+            // Вызываем функцию для получения и отображения курсов валют при загрузке страницы
+            window.onload = getCurrencyRates;
+        </script>
+    </body>
+</html>
