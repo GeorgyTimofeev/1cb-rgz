@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Первый Клиентский Банк</title>
+        <link rel="stylesheet" href="main.css" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="favicon-16x16.png"
+        />
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            .logo {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                width: 75px;
+                height: auto;
+                margin: 20px 0 0;
+            }
+            .container {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 50px;
+            }
+
+            .map-container {
+                width: 60%;
+                border: 8px solid #f8f9fa;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                overflow: hidden;
+                margin-left: 20px;
+            }
+
+            .map-container iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+
+            .contact-info {
+                width: 30%;
+                background-color: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                overflow-y: auto;
+                margin-right: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1
+                style="
+                    margin: 20px;
+                    font-family: Overpass;
+                    text-align: left;
+                    font-size: 50px;
+                "
+            >
+                <div>
+                    Контактные
+                    <u
+                        ><div style="display: inline; color: #c0c0c0">
+                            данные
+                        </div></u
+                    >
+                </div>
+            </h1>
+        </header>
+
+        <main>
+            <img src="logo.png" alt="Логотип" class="logo" />
+            <div class="container">
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.677141548415!2d37.65257464393168!3d55.70923344402962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54b338e30445d%3A0x9925a8241ffe9c4b!2z0J_QtdGA0LLRi9C5INCa0LvQuNC10L3RgtGB0LrQuNC5INCR0LDQvdC6!5e0!3m2!1sru!2sru!4v1716804662694!5m2!1sru!2sru"
+                        width="400"
+                        height="300"
+                        style="border: 0"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                </div>
+
+                <div class="contact-info" style="display: inline-block">
+                    <h2>Контактная информация</h2>
+                    <p><strong>АДРЕС</strong></p>
+                    <p>
+                        г. Москва,<br />
+                        ул. Ленинская Слобода, 19, строение 1
+                    </p>
+                    <p><strong>ВРЕМЯ РАБОТЫ:</strong></p>
+                    <p>
+                        Пн - Чт с 9.00 - до 19.00;<br />
+                        Пт: с 9.00 - до 18.00
+                    </p>
+                    <p><strong>ТЕЛЕФОН:</strong></p>
+                    <p>+7 495 276-0616</p>
+                    <p><strong>E-MAIL:</strong></p>
+                    <p><a href="mailto:info@1cb.ru">info@1cb.ru</a></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="menu-panel">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="currency.html">Курс валют</a></li>
+                    <li><a href="contacts.html">Контактные данные</a></li>
+                    <li><a href="video.html">Видео</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

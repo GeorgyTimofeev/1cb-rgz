@@ -41,10 +41,12 @@ body {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
+    transition: height 0.3s ease;
 }
 
 .menu-panel ul li a:hover {
-    color: #f8f9fa;
+    color: #648cc2;
+    font-size: 17px;
 }
 
 :root {
